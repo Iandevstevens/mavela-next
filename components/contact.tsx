@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 
 export function Contact() {
   return (
@@ -10,9 +10,7 @@ export function Contact() {
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">Plan Your Safari Adventure</h2>
             <div className="w-24 h-1 bg-accent mb-6" />
-            <p className="text-lg mb-8 opacity-90 leading-relaxed">
-              {"Contact us today to book your unforgettable luxury safari experience at Mavela Game Lodge."}
-            </p>
+            <p className="text-lg mb-8 opacity-90 leading-relaxed">{"Contact us today to book your unforgettable luxury safari experience at Mavela Game Lodge."}</p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -21,10 +19,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-semibold mb-1">Email</p>
-                  <a
-                    href="mailto:reservations@mavela.co.za"
-                    className="opacity-90 hover:opacity-100 transition-opacity"
-                  >
+                  <a href="mailto:reservations@mavela.co.za" className="opacity-90 hover:opacity-100 transition-opacity">
                     reservations@mavela.co.za
                   </a>
                 </div>
@@ -69,25 +64,13 @@ export function Contact() {
               <h3 className="text-2xl font-serif font-bold mb-6 text-white">Send us a message</h3>
               <form className="space-y-4">
                 <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent"
-                  />
+                  <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
                 <div>
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent"
-                  />
+                  <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
                 <div>
-                  <textarea
-                    placeholder="Your Message"
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                  />
+                  <textarea placeholder="Your Message" rows={5} className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
                 </div>
                 <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                   Send Message
@@ -98,5 +81,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

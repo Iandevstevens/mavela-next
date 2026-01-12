@@ -1,24 +1,18 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img src="/african-safari-sunset-big-five-wildlife.jpg" alt="Safari landscape" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      </div>
+      <Image src="/elephant.jpg" alt="Safari landscape" fill className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance">
-          Authentic Safari-Style Luxury Tented Camp
-        </h1>
-        <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto text-balance opacity-95">
-          Experience a true African safari in this fenced, family-owned luxury tented camp overlooking the valley of a
-          world-class private Big Five reserve
-        </p>
+        <h1 className="font-serif text-xl md:text-3xl lg:text-5xl font-bold mb-6 text-balance">Luxury Tented Camp in a Private Big Five Reserve</h1>
+        <p className="text-lg md:text-l lg:text-xl mb-8 max-w-3xl mx-auto text-balance opacity-95">Experience a true African safari in this fenced, luxury tented camp overlooking the valley of a world-class private reserve.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90">
             Enquire Now
@@ -37,5 +31,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
