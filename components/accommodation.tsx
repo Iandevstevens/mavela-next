@@ -10,7 +10,7 @@ export function Accommodation() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[600px] rounded-lg overflow-hidden">
-            <Image fill src="/authentic.jpg" alt="Luxury tent interior" className="w-full h-full object-cover" />
+            <Image fill src="/fire.jpg" alt="Luxury tent interior" className="w-full h-full object-cover" />
           </div>
           <div>
             <div className="inline-block px-4 py-2 bg-accent/20 rounded-full text-sm font-semibold text-accent mb-4">LUXURY SAFARI-STYLE TENTED CAMP</div>
