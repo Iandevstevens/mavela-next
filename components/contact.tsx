@@ -58,7 +58,6 @@ export function Contact() {
               </a>
             </div>
           </div>
-
           <Card className="bg-white/10 border-white/20">
             <CardContent className="p-6">
               <h3 className="text-2xl font-serif font-bold mb-6 text-white">Send us a message</h3>
