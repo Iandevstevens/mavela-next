@@ -12,8 +12,8 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="font-serif text-xl md:text-3xl lg:text-5xl font-bold mb-6 text-balance">Luxury Tented Camp in a Private Big Five Reserve</h1>
-        <p className="text-lg md:text-l lg:text-xl mb-8 max-w-3xl mx-auto text-balance opacity-95">Experience a true African safari in this fenced, luxury tented camp overlooking the valley of a world-class private reserve.</p>
+        <h1 className="font-serif text-xl md:text-3xl lg:text-5xl font-bold mb-6 text-balance">Luxury Tented Camp in the Manyoni Private Game Reserve</h1>
+        <p className="text-lg md:text-l lg:text-xl mb-8 max-w-3xl mx-auto text-balance opacity-95">Experience a true african safari in this all-inclusive, luxury tented camp situated in the heart of a world-class Big 5 Private Reserve</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90">
             <a href="#contact" className="text-sm hover:text-primary transition-colors">
