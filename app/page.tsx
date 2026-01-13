@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero";
 import { Experiences } from "@/components/experiences";
 import { Accommodation } from "@/components/accommodation";
 import { Testimonials } from "@/components/testimonials";
-import { News } from "@/components/news";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 

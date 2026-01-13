@@ -15,8 +15,8 @@ export function Contact() {
     const message = formData.get("message") as string;
     const html = await render(<EmailTemplate name={name} email={email} message={message} />);
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: ["reservations@mavela.co.za", "iandavidstevens06@gmail.com"],
+      from: "dev@mavela.co.za",
+      to: ["reservations@mavela.co.za"],
       subject: "Enquirey from Mavela Game Lodge Website",
       html,
     });
