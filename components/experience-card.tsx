@@ -1,22 +1,19 @@
-import { Card, CardContent } from "@/components/ui/card"
-import type { LucideIcon } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 interface ExperienceCardProps {
-  icon: LucideIcon
-  title: string
-  description: string
-  image: string
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  image: string;
 }
 
 export function ExperienceCard({ icon: Icon, title, description, image }: ExperienceCardProps) {
   return (
     <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300">
       <div className="relative h-64 overflow-hidden">
-        <img
-          src={image || "/placeholder.svg"}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
+        <Image fill src={image || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-4 left-4 text-white">
           <Icon className="w-8 h-8 mb-2" />
@@ -27,5 +24,5 @@ export function ExperienceCard({ icon: Icon, title, description, image }: Experi
         <p className="text-muted-foreground leading-relaxed">{description}</p>
       </CardContent>
     </Card>
-  )
+  );
 }

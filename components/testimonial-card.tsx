@@ -1,13 +1,13 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Star } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
 
 interface TestimonialCardProps {
-  name: string
-  text: string
-  rating: number
+  name: string;
+  text: string;
+  rating: number;
 }
 
-export function TestimonialCard({ name, text, rating }: TestimonialCardProps) {
+export function TestimonialCard({ text, rating }: TestimonialCardProps) {
   return (
     <Card className="h-full">
       <CardContent className="p-6">
@@ -16,8 +16,8 @@ export function TestimonialCard({ name, text, rating }: TestimonialCardProps) {
             <Star key={i} className="w-5 h-5 fill-accent text-accent" />
           ))}
         </div>
-        <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-6">{text}</p>
-        <div className="flex items-center gap-3 pt-4 border-t border-border">
+        <p className="text-muted-foreground leading-relaxed line-clamp-6">{text}</p>
+        {/* <div className="flex items-center gap-3 pt-4 border-t border-border">
           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold">
             {name.charAt(0)}
           </div>
@@ -25,8 +25,8 @@ export function TestimonialCard({ name, text, rating }: TestimonialCardProps) {
             <p className="font-semibold">{name}</p>
             <p className="text-sm text-muted-foreground">Guest</p>
           </div>
-        </div>
+        </div> */}
       </CardContent>
     </Card>
-  )
+  );
 }

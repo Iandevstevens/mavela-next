@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import Link from "next/link";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -22,20 +23,23 @@ export function Header() {
           <a href="#experiences" className="text-sm hover:text-primary transition-colors">
             Experiences
           </a>
-          <a href="#gallery" className="text-sm hover:text-primary transition-colors">
+          {/* <a href="#gallery" className="text-sm hover:text-primary transition-colors">
             Gallery
-          </a>
+          </a> */}
           <a href="#testimonials" className="text-sm hover:text-primary transition-colors">
             Testimonials
           </a>
           <a href="#contact" className="text-sm hover:text-primary transition-colors">
             Contact
           </a>
+          <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
+            Rates
+          </a>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="default" size="sm">
-            Check Availability
+            <Link href="https://book.nightsbridge.com/16200">Check Availability</Link>
           </Button>
         </div>
 
@@ -55,21 +59,24 @@ export function Header() {
             <a href="#experiences" className="text-sm hover:text-primary transition-colors">
               Experiences
             </a>
-            <a href="#gallery" className="text-sm hover:text-primary transition-colors">
+            {/* <a href="#gallery" className="text-sm hover:text-primary transition-colors">
               Gallery
-            </a>
+            </a> */}
             <a href="#testimonials" className="text-sm hover:text-primary transition-colors">
               Testimonials
             </a>
             <a href="#contact" className="text-sm hover:text-primary transition-colors">
               Contact
             </a>
+            <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
+              Rates
+            </a>
             <Button variant="default" size="sm" className="w-full mt-2">
-              Check Availability
+              <Link href="https://book.nightsbridge.com/16200">Check Availability</Link>
             </Button>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
