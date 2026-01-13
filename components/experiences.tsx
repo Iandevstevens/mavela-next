@@ -30,7 +30,7 @@ const experiences = [
     icon: Bird,
     title: "Bird Watching Paradise",
     description: "Over 420 bird species recorded on the property. Tick off your lifer list with exceptional birding opportunities from your deck or on game drives.",
-    image: "/bird.jpg",
+    image: "/bird2.jpg",
   },
   {
     icon: Home,

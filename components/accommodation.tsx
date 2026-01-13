@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const amenities = ["King or single beds with luxury linen", "Air conditioning and standing fans", "En-suite bathroom with indoor shower", "Private outdoor shower with bushveld views", "Large private deck with comfortable seating", "Birdbath for wildlife viewing", "Eco-friendly Afri-Earth amenities"];
 
@@ -28,9 +29,13 @@ export function Accommodation() {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg">Enquire Now</Button>
+              <Button size="lg">
+                <a href="#contact" className="text-sm hover:text-primary transition-colors">
+                  Enquire Now
+                </a>
+              </Button>
               <Button size="lg" variant="outline">
-                Check Availability
+                <Link href="https://book.nightsbridge.com/16200">Check Availability</Link>
               </Button>
             </div>
           </div>

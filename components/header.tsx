@@ -32,6 +32,9 @@ export function Header() {
           <a href="#contact" className="text-sm hover:text-primary transition-colors">
             Contact
           </a>
+          <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
+            Rates
+          </a>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
