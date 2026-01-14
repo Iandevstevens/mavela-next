@@ -1,36 +1,12 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
-import { Resend } from "resend";
-import { EmailTemplate } from "./email-template";
-import { render } from "@react-email/render";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { sendEmail, sendTokenToBackend } from "@/actions/sendEmail";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useCallback } from "react";
 
 export function Contact() {
-  const sendEmail = async (formData: FormData) => {
-    "use server";
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const message = formData.get("message") as string;
-    const html = await render(<EmailTemplate name={name} email={email} message={message} />);
-    const { data, error } = await resend.emails.send({
-      from: "dev@mavela.co.za",
-      to: ["reservations@mavela.co.za"],
-      subject: "Enquirey from Mavela Game Lodge Website",
-      html,
-    });
-
-    if (error) {
-      console.error("Error sending email:", error);
-    }
-    if (data) {
-      console.log("Email sent successfully:", data);
-    }
-
-    // Here you would typically send the email using an email service
-    console.log("Sending email:", { name, email, message });
-  };
   return (
     <section id="contact" className="py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
@@ -86,27 +62,65 @@ export function Contact() {
               </a>
             </div>
           </div>
-          <Card className="bg-white/10 border-white/20">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-serif font-bold mb-6 text-white">Send us a message</h3>
-              <form action={sendEmail} className="space-y-4">
-                <div>
-                  <input name="name" type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
-                </div>
-                <div>
-                  <input name="email" type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
-                </div>
-                <div>
-                  <textarea name="message" placeholder="Your Message" rows={5} className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
-                </div>
-                <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <ContactFormWrapper></ContactFormWrapper>
         </div>
       </div>
     </section>
+  );
+}
+
+export function ContactFormWrapper() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "NOT DEFINED"}>
+      <ContactForm />
+    </GoogleReCaptchaProvider>
+  );
+}
+
+export function ContactForm() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const handleFormSubmit = useCallback(
+    async (event: any) => {
+      event.preventDefault();
+
+      if (!executeRecaptcha) {
+        console.log("Execute recaptcha not yet available");
+        return;
+      }
+
+      const token = await executeRecaptcha("submit_form_action_name");
+      // Send the token to your backend for verification
+      const canSendTokenToBackend = await sendTokenToBackend(token);
+      if (canSendTokenToBackend) {
+        const formData = new FormData(event.target);
+        await sendEmail(formData);
+        event.target.reset();
+      } else {
+        alert("reCAPTCHA verification failed. Please try again.");
+      }
+    },
+    [executeRecaptcha],
+  );
+
+  return (
+    <Card className="bg-white/10 border-white/20">
+      <CardContent className="p-6">
+        <h3 className="text-2xl font-serif font-bold mb-6 text-white">Send us a message</h3>
+        <form onSubmit={handleFormSubmit} className="space-y-4">
+          <div>
+            <input name="name" type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
+          </div>
+          <div>
+            <input name="email" type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent" />
+          </div>
+          <div>
+            <textarea name="message" placeholder="Your Message" rows={5} className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
+          </div>
+          <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+            Send Message
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 }
