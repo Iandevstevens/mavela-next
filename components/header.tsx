@@ -32,9 +32,9 @@ export function Header() {
           <a href="#contact" className="text-sm hover:text-primary transition-colors">
             Contact
           </a>
-          <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
+          {/* <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
             Rates
-          </a>
+          </a> */}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -68,9 +68,9 @@ export function Header() {
             <a href="#contact" className="text-sm hover:text-primary transition-colors">
               Contact
             </a>
-            <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
+            {/* <a target="_blank" href="/rates.pdf" className="text-sm hover:text-primary transition-colors">
               Rates
-            </a>
+            </a> */}
             <Button variant="default" size="sm" className="w-full mt-2">
               <Link href="https://book.nightsbridge.com/16200">Check Availability</Link>
             </Button>
