@@ -42,7 +42,7 @@ export const sendTokenToBackend = async (token: string) => {
   });
   const data = await response.json();
 
-  if (data.success && data.score >= 0.5) {
+  if (data.success && data.score >= 0.2) {
     console.log("reCAPTCHA verification successful:", data);
     // Proceed with form submission logic, e.g., send email
     return true;
