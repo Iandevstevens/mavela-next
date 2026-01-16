@@ -36,7 +36,7 @@ export function Contact() {
                 <div>
                   <p className="font-semibold mb-1">Phone</p>
                   <p className="opacity-90">Tel: +27 (0)35 940 0996</p>
-                  <p className="opacity-90">Mobile/WhatsApp: +27 (0)72 347 6438</p>
+                  <p className="opacity-90">Mobile/WhatsApp: +27 (0)639371839</p>
                 </div>
               </div>
 
